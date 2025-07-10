@@ -55,30 +55,29 @@ object CustomTextStyles {
         textAlign = TextAlign.Center
     )
 
-    val scoreDisplay = TextStyle(
-        fontFamily = FredokaOne,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 36.sp,
-        lineHeight = 44.sp,
-        color = JuicyOrange,
-        textAlign = TextAlign.Center
-    )
-
     val levelIndicator = TextStyle(
-        fontFamily = FredokaOne,
-        fontWeight = FontWeight.Normal,
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
         lineHeight = 28.sp,
-        color = SunshineYellow
+        color = DeepCharcoal,
+        textAlign = TextAlign.Center
     )
 
     val cardTitle = TextStyle(
         fontFamily = FredokaOne,
-        fontWeight = FontWeight.Normal,
-        fontSize = 18.sp,
-        lineHeight = 24.sp,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 32.sp,
+        lineHeight = 40.sp,
         color = DeepCharcoal,
         textAlign = TextAlign.Center
+    )
+
+    val ScoreResult = TextStyle(
+        fontFamily = OpenSans,
+        fontWeight = FontWeight.Bold,
+        fontSize = 72.sp,
+        color = SunshineYellow
     )
 
     val cardContent = TextStyle(

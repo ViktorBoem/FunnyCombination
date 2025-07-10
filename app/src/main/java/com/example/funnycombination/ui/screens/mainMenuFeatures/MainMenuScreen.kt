@@ -11,9 +11,13 @@ import androidx.compose.ui.unit.dp
 import com.example.funnycombination.ui.screens.components.FulledButton
 import com.example.funnycombination.ui.screens.components.OutlinedButton
 import com.example.funnycombination.ui.theme.*
+import kotlin.system.exitProcess
 
 @Composable
-fun MainMenuScreen() {
+fun MainMenuScreen(
+    onPlayClick: () -> Unit = {},
+    onHighScoreClick: () -> Unit = {},
+) {
     Box(modifier = Modifier.fillMaxSize()) {
         FloatingEmojisBackground()
 
@@ -66,16 +70,15 @@ fun MainMenuScreen() {
             ) {
                 FulledButton(
                     text = "🎮 Play",
-                    onClick = {},
+                    onClick = onPlayClick,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
                 OutlinedButton(
                     text = "🏆 High Score",
-                    onClick = {},
+                    onClick = onHighScoreClick,
                 )
             }
-
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -85,7 +88,7 @@ fun MainMenuScreen() {
                     .weight(2f)
             ) {
                 TextButton(
-                    onClick = {},
+                    onClick = { /* TODO: Open Privacy Policy */ },
                 ) {
                     Text(
                         text = "Privacy Policy",
@@ -94,7 +97,7 @@ fun MainMenuScreen() {
                 }
 
                 TextButton(
-                    onClick = {}
+                    onClick = { exitProcess(0) }
                 ) {
                     Text(
                         text = "Exit",
