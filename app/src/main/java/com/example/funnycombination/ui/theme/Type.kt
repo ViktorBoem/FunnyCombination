@@ -18,6 +18,11 @@ val NunitoSans = FontFamily(
     Font(R.font.nunito_sans_bold, FontWeight.Bold)
 )
 
+val OpenSans = FontFamily(
+    Font(R.font.open_sans_semi_bold, FontWeight.SemiBold),
+    Font(R.font.open_sans_bold, FontWeight.Bold)
+)
+
 val Typography = Typography(
     displayLarge = TextStyle(
         fontFamily = FredokaOne,
