@@ -1,6 +1,5 @@
 package com.example.funnycombination.ui.screens.gameResultFetures
 
-import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -35,16 +34,17 @@ fun GameResultScreen(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
             ) {
                 Card(
                     elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
                     shape = RoundedCornerShape(24.dp),
                     colors = CardDefaults.cardColors(containerColor = Color.White),
                     modifier = Modifier
-                        .padding(16.dp)
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp)
+                        .padding(horizontal = 16.dp)
                 ) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
@@ -90,4 +90,3 @@ fun GameResultScreen(
         }
     }
 }
-

@@ -18,12 +18,12 @@ class HighScoreRepository @Inject constructor(private val highScoreDao: HighScor
     }
 
     suspend fun saveScore(score: Int): Boolean {
-        val isHighScore = isNewHighScore(score)
+        if (score <= 0) return false
+        val currentHighScores = highScoreDao.getBestScore() ?: 0
+        val isHighScore = score > currentHighScores
 
-        if (isHighScore) {
-            val newHighScore = HighScore(score = score, date = Date())
-            highScoreDao.insertHighScore(newHighScore.toEntity())
-        }
+        val newHighScore = HighScore(score = score, date = Date())
+        highScoreDao.insertHighScore(newHighScore.toEntity())
 
         return isHighScore
     }

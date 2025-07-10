@@ -10,7 +10,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.funnycombination.ui.theme.*
 
@@ -49,8 +48,8 @@ fun FulledButton(
             .shadow(
                 elevation = shadowElevation,
                 shape = RoundedCornerShape(50),
-                spotColor = Color.Black.copy(alpha = 0.4f),
-                ambientColor = Color.Black.copy(alpha = 0.2f)
+                spotColor = SunshineYellow.copy(alpha = 0.5f),
+                ambientColor = SunshineYellow.copy(alpha = 0.3f)
             )
             .fillMaxWidth(),
         shape = RoundedCornerShape(50),

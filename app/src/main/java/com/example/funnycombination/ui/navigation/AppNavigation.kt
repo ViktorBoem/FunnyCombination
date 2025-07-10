@@ -8,8 +8,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.funnycombination.ui.screens.gameResultFetures.GameResultScreen
 import com.example.funnycombination.ui.screens.gameCombinationFeatures.GameCombinationScreen
+import com.example.funnycombination.ui.screens.highScoreFeatures.HighScoreScreen
 import com.example.funnycombination.ui.screens.splashScreenFeatures.CustomSplashScreen
 import com.example.funnycombination.ui.screens.mainMenuFeatures.MainMenuScreen
+import com.example.funnycombination.ui.screens.privacyPolicyFeatures.PrivacyPolicyScreen
 
 @Composable
 fun AppNavigation() {
@@ -23,14 +25,17 @@ fun AppNavigation() {
         composable("main_menu") {
             MainMenuScreen(
                 onPlayClick = { navController.navigate("game") },
-                onHighScoreClick = { navController.navigate("highscores") }
+                onHighScoreClick = { navController.navigate("highscores") },
+                onPrivacyPolicyClick = { navController.navigate("privacy_policy") }
             )
         }
 
         composable("game") {
             GameCombinationScreen(
                 onGameOver = { score, isNewRecord ->
-                    navController.navigate("game_over/$score/$isNewRecord")
+                    navController.navigate("game_over/$score/$isNewRecord") {
+                        popUpTo("game") { inclusive = true }
+                    }
                 }
             )
         }
@@ -48,13 +53,25 @@ fun AppNavigation() {
             GameResultScreen(
                 score = score,
                 isNewRecord = isNewRecord,
-                onPlayAgain = { navController.navigate("game") },
+                onPlayAgain = {
+                    navController.navigate("game") {
+                        popUpTo("main_menu")
+                    }
+                },
                 onMainMenu = {
                     navController.navigate("main_menu") {
                         popUpTo("main_menu") { inclusive = true }
                     }
                 }
             )
+        }
+
+        composable("highscores") {
+            HighScoreScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable("privacy_policy") {
+            PrivacyPolicyScreen(onBack = { navController.popBackStack() })
         }
     }
 }

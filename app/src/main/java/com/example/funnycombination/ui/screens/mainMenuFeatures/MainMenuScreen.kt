@@ -17,6 +17,7 @@ import kotlin.system.exitProcess
 fun MainMenuScreen(
     onPlayClick: () -> Unit = {},
     onHighScoreClick: () -> Unit = {},
+    onPrivacyPolicyClick: () -> Unit = {}
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         FloatingEmojisBackground()
@@ -88,7 +89,7 @@ fun MainMenuScreen(
                     .weight(2f)
             ) {
                 TextButton(
-                    onClick = { /* TODO: Open Privacy Policy */ },
+                    onClick = onPrivacyPolicyClick,
                 ) {
                     Text(
                         text = "Privacy Policy",
